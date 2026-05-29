@@ -6,7 +6,6 @@ import { ArrowLeft } from "lucide-react";
 import { semesters } from "@/data/coursework";
 import type { Course } from "@/data/coursework";
 import FadeIn from "@/components/FadeIn";
-import Navbar from "@/components/Navbar";
 import CursorGlow from "@/components/CursorGlow";
 
 function StatusBadge({ status }: { status: Course["status"] }) {
@@ -30,7 +29,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
     <FadeIn delay={index * 0.05}>
       <div
         className="relative bg-surface rounded-lg p-5 overflow-hidden transition-all duration-200 hover:-translate-y-1"
-        style={{ border: `2px solid ${hovered ? course.color : "#E4E0DA"}` }}
+        style={{ border: `1px solid ${hovered ? course.color : "#E4E0DA"}` }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -56,9 +55,8 @@ export default function CourseworkPage() {
   return (
     <div className="min-h-screen bg-background text-text-primary font-sans antialiased">
       <CursorGlow />
-      <Navbar />
 
-      <main className="max-w-content mx-auto px-6 pt-32 pb-24">
+      <main className="max-w-content mx-auto px-6 pt-16 pb-24">
         {/* Back link */}
         <FadeIn delay={0}>
           <Link
