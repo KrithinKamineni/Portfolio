@@ -1,9 +1,11 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { Mail } from "lucide-react";
 import { siLinkedin, siGithub } from "simple-icons";
 import FadeIn from "./FadeIn";
+import Typewriter from "./Typewriter";
 
 function SimpleSvgIcon({ path, title, size = 20 }: { path: string; title: string; size?: number }) {
   return (
@@ -33,11 +35,9 @@ export default function Hero() {
               </h1>
             </FadeIn>
 
-            <FadeIn delay={0.2}>
-              <p className="font-sans text-xl md:text-2xl text-text-secondary max-w-xl mb-4 leading-relaxed">
-                I build products and the code behind them.
-              </p>
-            </FadeIn>
+            <div className="font-sans text-xl md:text-2xl text-text-secondary max-w-xl mb-4 leading-relaxed" style={{ opacity: 1 }}>
+              <Typewriter text="I build products and the code behind them." delay={0.6} speed={30} />
+            </div>
 
             <FadeIn delay={0.25}>
               <p className="font-mono text-sm text-text-secondary tracking-wide mb-8">
@@ -58,17 +58,23 @@ export default function Hero() {
                 <a
                   href="#projects"
                   onClick={(e) => { e.preventDefault(); document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" }); }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-white font-sans text-sm font-medium rounded border border-text-primary hover:bg-transparent hover:text-text-primary transition-all duration-150"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-text-primary text-white font-sans text-sm font-medium rounded border border-text-primary hover:scale-105 transition-all duration-150"
                 >
                   View Projects
                 </a>
                 <a
                   href="#contact"
                   onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-text-primary font-sans text-sm font-medium rounded border border-border hover:border-text-primary transition-all duration-150"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-text-primary font-sans text-sm font-medium rounded border border-border hover:border-text-primary hover:scale-105 transition-all duration-150"
                 >
                   Get in Touch
                 </a>
+                <Link
+                  href="/coursework"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-transparent text-text-primary font-sans text-sm font-medium rounded border border-border hover:border-text-primary hover:scale-105 transition-all duration-150"
+                >
+                  Coursework
+                </Link>
               </div>
             </FadeIn>
 

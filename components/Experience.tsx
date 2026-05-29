@@ -39,7 +39,7 @@ function CompanyLogo({ exp }: { exp: typeof experiences[0] }) {
         target="_blank"
         rel="noopener noreferrer"
         aria-label={`${exp.company} website`}
-        className="flex-shrink-0 hover:opacity-80 transition-opacity duration-150"
+        className="flex-shrink-0 hover:scale-110 hover:opacity-80 transition-all duration-150"
       >
         {logoEl}
       </a>

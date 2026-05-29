@@ -5,7 +5,7 @@ import { siLinkedin, siGithub } from "simple-icons";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="py-20 md:py-28 bg-text-primary scroll-mt-20">
+    <footer id="contact" className="py-20 md:py-28 bg-text-primary scroll-mt-20 relative z-10 isolate">
       <div className="max-w-content mx-auto px-6 text-center">
         <p className="font-mono text-sm text-accent tracking-widest uppercase mb-4">
           Get in Touch
@@ -19,7 +19,7 @@ export default function Footer() {
 
         <a
           href="mailto:kkam06@berkeley.edu"
-          className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-white font-sans text-sm font-medium rounded hover:bg-accent/90 transition-colors duration-150 mb-12"
+          className="inline-flex items-center gap-2 px-7 py-3.5 bg-accent text-white font-sans text-sm font-medium rounded hover:bg-accent/90 hover:scale-105 transition-all duration-150 mb-12"
         >
           <Mail size={16} />
           kkam06@berkeley.edu

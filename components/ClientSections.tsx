@@ -1,22 +1,20 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const Hero = dynamic(() => import("@/components/Hero"), { ssr: false });
-const Education = dynamic(() => import("@/components/Education"), { ssr: false });
-const Experience = dynamic(() => import("@/components/Experience"), { ssr: false });
-const Projects = dynamic(() => import("@/components/Projects"), { ssr: false });
-const Skills = dynamic(() => import("@/components/Skills"), { ssr: false });
-const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+import Hero from "@/components/Hero";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Organizations from "@/components/Organizations";
+import Skills from "@/components/Skills";
+import Footer from "@/components/Footer";
 
 export default function ClientSections() {
   return (
     <>
       <main id="main">
         <Hero />
-        <Education />
         <Experience />
         <Projects />
+        <Organizations />
         <Skills />
       </main>
       <Footer />
