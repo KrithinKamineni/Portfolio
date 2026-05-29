@@ -27,7 +27,7 @@ export const experiences: Experience[] = [
     bullets: [
       "Leading user research initiative by conducting 15 stakeholder interviews with architects and engineers to validate AI design compliance workflows and identify market gaps for US market expansion.",
       "Analyzed competitive landscape across Solibri and 7+ AI compliance platforms; created competitive matrix and strategic recommendations.",
-      "Creating PRD and Figma prototypes for AI Design Analysis features within a cross-functional team of 8.",
+      "Engineering an async Python agent for regulatory table validation, achieving F1 1.00 on benchmarks and 99% human evaluation acceptance; validated on real 100+ page documents with 22 passing unit tests, supporting AI compliance analysis roadmap.",
     ],
   },
   {

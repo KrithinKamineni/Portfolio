@@ -96,14 +96,24 @@ export default function Hero() {
           {/* Headshot */}
           <FadeIn delay={0.2}>
             <div className="flex-shrink-0 flex justify-center md:justify-end">
-              <div className="relative w-56 h-56 md:w-72 md:h-72 rounded-2xl overflow-hidden border border-border">
-                <Image
-                  src="/headshot.jpg"
-                  alt="Krithin Kamineni"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                />
+              <div className="headshot-float">
+                <div className="relative w-56 h-56 md:w-72 md:h-72">
+                  {/* Spinning glow ring */}
+                  <div className="glow-ring-wrap">
+                    <div className="glow-ring-spinner" />
+                    <div className="glow-ring-inner" />
+                  </div>
+                  {/* Photo */}
+                  <div className="absolute inset-[3px] rounded-2xl overflow-hidden z-10">
+                    <Image
+                      src="/headshot.jpg"
+                      alt="Krithin Kamineni"
+                      fill
+                      className="object-cover object-top"
+                      priority
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </FadeIn>

@@ -70,8 +70,8 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
 
         <ul className="space-y-2 mb-5">
           {exp.bullets.map((bullet, i) => (
-            <li key={i} className="font-sans text-sm text-text-secondary leading-relaxed flex gap-2">
-              <span className="text-accent mt-1 flex-shrink-0">–</span>
+            <li key={i} className="font-sans text-sm text-text-secondary leading-relaxed flex items-start gap-2">
+              <span className="text-accent flex-shrink-0 leading-relaxed">–</span>
               <span>{bullet}</span>
             </li>
           ))}

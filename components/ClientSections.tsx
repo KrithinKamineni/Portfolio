@@ -1,6 +1,7 @@
 "use client";
 
 import Hero from "@/components/Hero";
+import PhotoStrip from "@/components/PhotoStrip";
 import Experience from "@/components/Experience";
 import Projects from "@/components/Projects";
 import Organizations from "@/components/Organizations";
@@ -12,6 +13,7 @@ export default function ClientSections() {
     <>
       <main id="main">
         <Hero />
+        <PhotoStrip />
         <Experience />
         <Projects />
         <Organizations />

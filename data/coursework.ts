@@ -28,7 +28,7 @@ export const semesters: Semester[] = [
     label: "Spring 2026",
     courses: [
       { id: "CS 61C", name: "Great Ideas of Computer Architecture (Machine Structures)", color: "#E8A838", status: "COMPLETED", tags: ["Core CS", "C/RISC-V"] },
-      { id: "PHYSICS 7B", name: "Thermodynamics and Electromagnetism", color: "#3B82F6", status: "COMPLETED", tags: ["Physics", "EE"] },
+      { id: "PHYSICS 7B", name: "Thermodynamics & Electromagnetism", color: "#3B82F6", status: "COMPLETED", tags: ["Physics", "EE"] },
       { id: "EDUC 155AC", name: "Pacific Islander & Asian American Educational Struggles", color: "#A855F7", status: "COMPLETED", tags: ["AC", "Humanities"] },
     ],
   },
