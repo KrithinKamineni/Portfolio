@@ -5,26 +5,16 @@ import { siGithub } from "simple-icons";
 import { projects } from "@/data/projects";
 import FadeIn from "./FadeIn";
 
-const techTagStyle: Record<string, string> = {
-  "Next.js": "text-text-primary border-border",
-  TypeScript: "text-blue-700 border-blue-200",
-  NLP: "text-purple-700 border-purple-200",
-  Product: "text-teal-700 border-teal-200",
-  Hardware: "text-orange-700 border-orange-200",
-  "Circuit Design": "text-red-700 border-red-200",
-  LTspice: "text-green-700 border-green-200",
-};
-
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   return (
-    <FadeIn delay={index * 0.1}>
-      <div className="group bg-surface border border-border rounded-lg p-6 md:p-8 hover:border-accent hover:-translate-y-0.5 transition-all duration-150 flex flex-col h-full">
-        <div className="flex items-start justify-between gap-4 mb-3">
+    <FadeIn delay={index * 0.08}>
+      <div className="group flex flex-col gap-4 py-8 border-b border-border last:border-0 hover:bg-surface/60 rounded-xl px-4 -mx-4 transition-all duration-200">
+        <div className="flex items-start justify-between gap-4">
           <div>
-            <h3 className="font-serif text-xl text-text-primary mb-0.5">{project.name}</h3>
+            <h3 className="font-serif text-lg text-text-primary mb-0.5">{project.name}</h3>
             <p className="font-mono text-xs text-text-secondary">{project.period}</p>
           </div>
-          <div className="flex items-center gap-3 flex-shrink-0">
+          <div className="flex items-center gap-3 flex-shrink-0 pt-1">
             {project.github && (
               <a href={project.github} target="_blank" rel="noopener noreferrer" aria-label={`${project.name} GitHub`} className="text-text-secondary hover:text-text-primary transition-colors duration-150">
                 <svg viewBox="0 0 24 24" width={16} height={16} fill="currentColor" aria-hidden="true"><path d={siGithub.path} /></svg>
@@ -38,20 +28,20 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           </div>
         </div>
 
-        <p className="font-sans text-sm text-text-secondary mb-4 leading-relaxed">{project.description}</p>
+        <p className="font-sans text-sm text-text-secondary leading-relaxed">{project.description}</p>
 
-        <ul className="space-y-2 mb-6 flex-1">
+        <ul className="space-y-2">
           {project.bullets.map((bullet, i) => (
-            <li key={i} className="font-sans text-sm text-text-secondary leading-relaxed flex gap-2">
-              <span className="text-accent mt-1 flex-shrink-0">–</span>
+            <li key={i} className="font-sans text-sm text-text-secondary leading-relaxed flex items-start gap-2">
+              <span className="text-accent flex-shrink-0 leading-relaxed">–</span>
               <span>{bullet}</span>
             </li>
           ))}
         </ul>
 
-        <div className="flex flex-wrap gap-2 mt-auto">
+        <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span key={tag} className={`font-mono text-xs px-2.5 py-1 rounded border bg-background ${techTagStyle[tag] ?? "text-text-secondary border-border"}`}>
+            <span key={tag} className="font-mono text-xs px-2.5 py-1 rounded-full text-text-secondary bg-surface border border-border">
               {tag}
             </span>
           ))}
@@ -63,16 +53,16 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 md:py-28 bg-[#F0EDE9] scroll-mt-20">
+    <section id="projects" className="py-20 md:py-28 bg-background scroll-mt-20">
       <div className="max-w-content mx-auto px-6">
         <FadeIn>
           <div className="mb-12">
-            <p className="font-mono text-sm text-accent tracking-widest uppercase mb-3">Work</p>
+            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">Work</p>
             <h2 className="font-serif text-4xl md:text-5xl text-text-primary">Projects</h2>
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
           {projects.map((project, i) => (
             <ProjectCard key={project.name} project={project} index={i} />
           ))}
