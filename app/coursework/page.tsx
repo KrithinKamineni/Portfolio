@@ -28,7 +28,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
   return (
     <FadeIn delay={index * 0.05}>
       <div
-        className="group flex gap-4 py-5 border-b border-border last:border-0 hover:bg-surface/60 rounded-xl px-3 -mx-3 transition-all duration-200"
+        className="group flex gap-4 py-5 border-b border-border last:border-0 hover:bg-surface/60 rounded-xl px-4 -mx-4 transition-all duration-200"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >

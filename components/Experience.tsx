@@ -34,7 +34,7 @@ function CompanyLogo({ exp }: { exp: typeof experiences[0] }) {
 
   if (exp.website) {
     return (
-      <a href={exp.website} target="_blank" rel="noopener noreferrer" aria-label={`${exp.company} website`} className="flex-shrink-0 hover:scale-110 transition-all duration-150">
+      <a href={exp.website} target="_blank" rel="noopener noreferrer" aria-label={`${exp.company} website`} className="flex-shrink-0 hover:scale-105 transition-all duration-150">
         {logoEl}
       </a>
     );

@@ -29,10 +29,13 @@ export default function Skills() {
                 <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
                   {group.category}
                 </p>
-                <div className="flex flex-wrap gap-2">
-                  {group.skills.map((skill) => (
-                    <span key={skill} className="font-sans text-sm text-text-secondary">
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  {group.skills.map((skill, si) => (
+                    <span key={skill} className="flex items-center gap-2 font-sans text-sm text-text-secondary">
                       {skill}
+                      {si < group.skills.length - 1 && (
+                        <span style={{ color: "#C4BDB6" }}>•</span>
+                      )}
                     </span>
                   ))}
                 </div>
