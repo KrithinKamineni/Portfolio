@@ -61,20 +61,20 @@ export default function Hero() {
                 <a
                   href="#projects"
                   onClick={(e) => { e.preventDefault(); document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" }); }}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-text-primary text-white font-sans text-sm font-medium rounded-full border border-text-primary hover:scale-105 transition-all duration-150"
+                  className="btn-shimmer inline-flex items-center gap-2 px-5 py-2.5 bg-text-primary text-white font-sans text-sm font-medium rounded-lg border border-text-primary hover:scale-105 transition-all duration-150"
                 >
                   View Projects
                 </a>
                 <a
                   href="#contact"
                   onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent text-text-primary font-sans text-sm font-medium rounded-full border border-border hover:border-text-primary hover:scale-105 transition-all duration-150"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent text-text-primary font-sans text-sm font-medium rounded-lg border border-border hover:border-text-primary hover:scale-105 transition-all duration-150"
                 >
                   Get in Touch
                 </a>
                 <Link
                   href="/coursework"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent text-text-primary font-sans text-sm font-medium rounded-full border border-border hover:border-text-primary hover:scale-105 transition-all duration-150"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-transparent text-text-primary font-sans text-sm font-medium rounded-lg border border-border hover:border-text-primary hover:scale-105 transition-all duration-150"
                 >
                   Coursework
                 </Link>

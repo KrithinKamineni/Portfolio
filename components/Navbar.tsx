@@ -16,12 +16,13 @@ const sectionIds = ["", "experience", "projects", "organizations", "skills"];
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [pillStyle, setPillStyle] = useState({ left: 0, width: 0 });
+  const [scrolled, setScrolled] = useState(false);
   const linkRefs = useRef<(HTMLAnchorElement | null)[]>([]);
   const scrollingRef = useRef(false);
 
   useEffect(() => {
     const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
       if (scrollingRef.current) return;
       const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 50;
       if (atBottom) { setActiveIndex(sectionIds.length - 1); return; }
@@ -38,11 +39,6 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const el = linkRefs.current[activeIndex];
-    if (el) setPillStyle({ left: el.offsetLeft, width: el.offsetWidth });
-  }, [activeIndex]);
-
   const handleNavClick = (href: string, index: number) => {
     setMenuOpen(false);
     setActiveIndex(index);
@@ -55,63 +51,58 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Floating pill navbar */}
-      <header className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
-        <div className="flex items-center gap-1 bg-white/80 backdrop-blur-md border border-border rounded-full px-3 py-2 shadow-sm">
-          {/* Logo / name */}
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); handleNavClick("#", 0); }}
-            className="font-serif text-sm text-text-primary hover:text-accent transition-colors duration-150 px-3 py-1 mr-2"
-          >
-            KK
-          </a>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
+          scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-background/60 backdrop-blur-sm"
+        }`}
+      >
+        <div className="max-w-content mx-auto px-6 flex items-center justify-between h-20">
 
-          <div className="w-px h-4 bg-border mx-1" />
+          {/* Left: initials + nav links */}
+          <div className="flex items-center gap-8">
+            <a
+              href="#"
+              onClick={(e) => { e.preventDefault(); handleNavClick("#", 0); }}
+              className="font-serif text-base text-text-primary hover:text-accent transition-colors duration-150"
+            >
+              KK
+            </a>
 
-          {/* Desktop nav links */}
-          <nav className="relative hidden md:flex items-center gap-1" aria-label="Main navigation">
-            {/* Sliding pill */}
-            {pillStyle.width > 0 && (
-              <span
-                className="absolute top-0 bottom-0 rounded-full bg-background transition-all duration-300 ease-in-out"
-                style={{ left: pillStyle.left, width: pillStyle.width }}
-              />
-            )}
-            {navLinks.map((link, i) => (
-              <a
-                key={link.href}
-                ref={(el) => { linkRefs.current[i] = el; }}
-                href={link.href}
-                onClick={(e) => { e.preventDefault(); handleNavClick(link.href, i); }}
-                className={`relative z-10 font-sans text-sm px-3 py-1 rounded-full transition-colors duration-150 ${
-                  activeIndex === i ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
-                }`}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
+            <nav className="hidden md:flex items-center gap-7" aria-label="Main navigation">
+              {navLinks.map((link, i) => (
+                <a
+                  key={link.href}
+                  ref={(el) => { linkRefs.current[i] = el; }}
+                  href={link.href}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(link.href, i); }}
+                  className={`font-sans text-base transition-colors duration-150 ${
+                    activeIndex === i ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+                  }`}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
 
-          <div className="w-px h-4 bg-border mx-1 hidden md:block" />
+          {/* Right: Contact button */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#contact"
+              onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
+              className="btn-shimmer hidden md:inline-flex items-center font-sans text-base font-medium px-5 py-2 rounded-lg bg-text-primary text-white hover:scale-105 transition-all duration-150"
+            >
+              Contact
+            </a>
 
-          {/* Contact CTA */}
-          <a
-            href="#contact"
-            onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
-            className="hidden md:inline-flex items-center font-sans text-sm font-medium px-4 py-1.5 rounded-full bg-text-primary text-white hover:bg-text-primary/85 transition-all duration-150 hover:scale-105 ml-1"
-          >
-            Contact
-          </a>
-
-          {/* Mobile hamburger */}
-          <button
-            className="md:hidden p-1.5 text-text-secondary hover:text-text-primary transition-colors ml-1"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Open navigation menu"
-          >
-            <Menu size={18} />
-          </button>
+            <button
+              className="md:hidden p-1.5 text-text-secondary hover:text-text-primary transition-colors"
+              onClick={() => setMenuOpen(true)}
+              aria-label="Open navigation menu"
+            >
+              <Menu size={18} />
+            </button>
+          </div>
         </div>
       </header>
 

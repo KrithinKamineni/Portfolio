@@ -19,7 +19,7 @@ export default function Footer() {
 
         <a
           href="mailto:kkam06@berkeley.edu"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-sans text-sm font-medium rounded-full hover:bg-accent/85 hover:scale-105 transition-all duration-150 mb-16"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-sans text-sm font-medium rounded-lg hover:bg-accent/85 hover:scale-105 transition-all duration-150 mb-16"
         >
           <Mail size={15} />
           kkam06@berkeley.edu

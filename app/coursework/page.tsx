@@ -6,7 +6,6 @@ import { ArrowLeft } from "lucide-react";
 import { semesters } from "@/data/coursework";
 import type { Course } from "@/data/coursework";
 import FadeIn from "@/components/FadeIn";
-import CursorGlow from "@/components/CursorGlow";
 
 function StatusBadge({ status }: { status: Course["status"] }) {
   const isRunning = status === "RUNNING";
@@ -62,8 +61,6 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
 export default function CourseworkPage() {
   return (
     <div className="min-h-screen bg-background text-text-primary font-sans antialiased">
-      <CursorGlow />
-
       <main className="max-w-content mx-auto px-6 pt-16 pb-24">
         {/* Back link */}
         <FadeIn delay={0}>
