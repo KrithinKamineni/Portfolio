@@ -1,4 +1,4 @@
-# Krithin Kamineni — Personal Portfolio
+# Krithin Kamineni's Personal Portfolio
 
 Personal portfolio website built with Next.js 15, TypeScript, and Tailwind CSS.
 
