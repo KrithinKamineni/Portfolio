@@ -43,7 +43,8 @@ export default function Skills() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {skillCategories.map((group, i) => (
             <FadeIn key={group.category} delay={i * 0.07}>
-              <div className="bg-surface border border-border rounded-lg p-6 h-full">
+              <div className="bg-surface border border-border rounded-lg p-6 h-full hover:border-accent transition-all duration-200 group">
+
                 <p className="font-mono text-xs text-accent tracking-widest uppercase mb-4">
                   {group.category}
                 </p>

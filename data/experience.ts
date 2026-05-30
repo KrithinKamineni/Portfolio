@@ -14,6 +14,19 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
+    company: "InsightLab AI",
+    location: "San Francisco, CA",
+    role: "Incoming Software Engineer Intern",
+    period: "Summer 2026",
+    tags: ["Engineering", "AI"],
+    logo: "IL",
+    logoColor: "#FFFFFF",
+    logoBg: "#111111",
+    logoImage: "/insightlab-logo.png",
+    website: "https://insightlabai.dev/",
+    bullets: [],
+  },
+  {
     company: "WhiteHelmet",
     location: "Remote",
     role: "Associate Product Management Intern",
