@@ -1,15 +1,16 @@
 "use client";
 
-import { Mail } from "lucide-react";
+import { Mail, MessageCircle } from "lucide-react";
 import { siLinkedin, siGithub } from "simple-icons";
 
 export default function Footer() {
   return (
     <footer id="contact" className="pt-32 pb-12 md:pt-40 md:pb-16 bg-[#111111] scroll-mt-20 relative z-10 isolate">
       <div className="max-w-content mx-auto px-6 text-center">
-        <p className="font-mono text-xs text-accent tracking-widest uppercase mb-6">
-          Get in Touch
-        </p>
+        <div className="flex items-center justify-center gap-1.5 mb-6">
+          <MessageCircle size={11} className="text-accent" />
+          <p className="font-sans text-xs text-accent tracking-widest uppercase">Get in Touch</p>
+        </div>
         <h2 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-tight mb-6">
           Let&apos;s build<br />something great.
         </h2>
@@ -19,7 +20,7 @@ export default function Footer() {
 
         <a
           href="mailto:kkam06@berkeley.edu"
-          className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-sans text-sm font-medium rounded-lg hover:bg-accent/85 hover:scale-105 transition-all duration-150 mb-16"
+          className="btn-shimmer btn-accent inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-sans text-sm font-medium rounded-lg hover:scale-105 transition-all duration-150 mb-16"
         >
           <Mail size={15} />
           kkam06@berkeley.edu

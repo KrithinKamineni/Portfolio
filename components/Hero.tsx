@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail } from "lucide-react";
+import { Mail, GraduationCap } from "lucide-react";
 import { siLinkedin, siGithub } from "simple-icons";
 import FadeIn from "./FadeIn";
 import Typewriter from "./Typewriter";
@@ -25,9 +25,10 @@ export default function Hero() {
           {/* Text */}
           <div className="flex-1 max-w-2xl">
             <FadeIn delay={0}>
-              <p className="font-mono text-xs text-accent tracking-widest uppercase mb-5">
-                EECS @ UC Berkeley
-              </p>
+              <div className="flex items-center gap-1.5 mb-5">
+                <GraduationCap size={11} className="text-accent" />
+                <p className="font-sans text-xs text-accent tracking-widest uppercase">EECS @ UC Berkeley</p>
+              </div>
             </FadeIn>
 
             <FadeIn delay={0.1}>

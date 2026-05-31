@@ -23,8 +23,12 @@ body {
   overflow: hidden;
 }
 
-.btn-shimmer:hover {
-  background-color: #2a2a2a !important;
+.btn-shimmer:not(.btn-accent):hover {
+  background-color: #2a2a2a;
+}
+
+.btn-shimmer.btn-accent:hover {
+  background-color: #c98e20;
 }
 
 .btn-shimmer::after {

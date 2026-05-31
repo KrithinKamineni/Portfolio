@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Users } from "lucide-react";
 import { organizations } from "@/data/organizations";
 import type { Organization } from "@/data/organizations";
 import FadeIn from "./FadeIn";
@@ -22,9 +22,9 @@ function OrgCard({ org, index }: { org: Organization; index: number }) {
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${org.name} website`}
-          className="flex-shrink-0 hover:scale-110 transition-all duration-150"
+          className="flex-shrink-0 hover:scale-105 transition-all duration-150"
         >
-          <div className="w-10 h-10 rounded-xl overflow-hidden border border-border bg-background flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center">
             <Image src={org.logoImage} alt={`${org.name} logo`} width={40} height={40} className="w-10 h-10 object-cover" />
           </div>
         </a>
@@ -32,15 +32,6 @@ function OrgCard({ org, index }: { org: Organization; index: number }) {
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 mb-0.5">
             <h3 className="font-serif text-lg text-text-primary">{org.name}</h3>
-            <a
-              href={org.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`${org.name} website`}
-              className="text-text-secondary hover:text-text-primary transition-colors duration-150"
-            >
-              <ExternalLink size={13} />
-            </a>
           </div>
           <p className="font-sans text-sm text-text-secondary mb-4">UC Berkeley</p>
 
@@ -80,7 +71,10 @@ export default function Organizations() {
       <div className="max-w-content mx-auto px-6">
         <FadeIn>
           <div className="mb-12">
-            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">Campus</p>
+            <div className="flex items-center gap-1.5 mb-3">
+              <Users size={11} className="text-accent" />
+              <p className="font-sans text-xs text-accent tracking-widest uppercase">Campus</p>
+            </div>
             <h2 className="font-serif text-4xl md:text-5xl text-text-primary">Organizations</h2>
           </div>
         </FadeIn>

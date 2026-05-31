@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, FolderOpen } from "lucide-react";
 import { siGithub } from "simple-icons";
 import { projects } from "@/data/projects";
 import FadeIn from "./FadeIn";
@@ -57,7 +57,10 @@ export default function Projects() {
       <div className="max-w-content mx-auto px-6">
         <FadeIn>
           <div className="mb-12">
-            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">Personal</p>
+            <div className="flex items-center gap-1.5 mb-3">
+              <FolderOpen size={11} className="text-accent" />
+              <p className="font-sans text-xs text-accent tracking-widest uppercase">Personal</p>
+            </div>
             <h2 className="font-serif text-4xl md:text-5xl text-text-primary">Projects</h2>
           </div>
         </FadeIn>

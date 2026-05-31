@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { Briefcase, MapPin } from "lucide-react";
 import { experiences } from "@/data/experience";
 import FadeIn from "./FadeIn";
 
@@ -25,7 +26,7 @@ function CompanyLogo({ exp }: { exp: typeof experiences[0] }) {
     />
   ) : (
     <div
-      className="w-10 h-10 rounded-xl flex items-center justify-center font-mono text-xs font-medium"
+      className="w-10 h-10 rounded-xl flex items-center justify-center font-sans text-xs font-medium"
       style={{ backgroundColor: exp.logoBg, color: exp.logoColor }}
     >
       {exp.logo}
@@ -51,11 +52,15 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
         <div className="flex-1 min-w-0">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
             <h3 className="font-serif text-lg text-text-primary">{exp.company}</h3>
-            <span className="font-mono text-xs text-text-secondary whitespace-nowrap">{exp.period}</span>
+            <span className="font-sans text-xs text-text-secondary whitespace-nowrap">{exp.period}</span>
           </div>
-          <p className="font-sans text-sm text-text-secondary mb-4">
-            {exp.role} · {exp.location}
-          </p>
+          <div className="flex flex-wrap items-center gap-3 mb-4">
+            <span className="font-sans text-sm text-text-secondary">{exp.role}</span>
+            <span className="flex items-center gap-1 font-sans text-xs text-text-secondary/70">
+              <MapPin size={11} />
+              {exp.location}
+            </span>
+          </div>
 
           {exp.bullets.length > 0 && (
             <ul className="space-y-2 mb-4">
@@ -72,7 +77,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
             {exp.tags.map((tag) => (
               <span
                 key={tag}
-                className={`font-mono text-xs px-2.5 py-1 rounded-full ${
+                className={`font-sans text-xs px-2.5 py-1 rounded-full ${
                   tagColors[tag] ?? "text-text-secondary bg-background"
                 }`}
               >
@@ -92,7 +97,10 @@ export default function Experience() {
       <div className="max-w-content mx-auto px-6">
         <FadeIn>
           <div className="mb-12">
-            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">Work</p>
+            <div className="flex items-center gap-1.5 mb-3">
+              <Briefcase size={11} className="text-accent" />
+              <p className="font-sans text-xs text-accent tracking-widest uppercase">Work</p>
+            </div>
             <h2 className="font-serif text-4xl md:text-5xl text-text-primary">Experience</h2>
           </div>
         </FadeIn>
