@@ -57,7 +57,7 @@ export default function Projects() {
       <div className="max-w-content mx-auto px-6">
         <FadeIn>
           <div className="mb-12">
-            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">Work</p>
+            <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">Personal</p>
             <h2 className="font-serif text-4xl md:text-5xl text-text-primary">Projects</h2>
           </div>
         </FadeIn>
