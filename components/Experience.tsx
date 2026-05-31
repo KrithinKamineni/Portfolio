@@ -46,7 +46,7 @@ function CompanyLogo({ exp }: { exp: typeof experiences[0] }) {
 function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
   return (
     <FadeIn delay={index * 0.08}>
-      <div className="group flex gap-5 py-8 border-b border-border last:border-0 hover:bg-surface/60 rounded-xl px-4 -mx-4 transition-all duration-200">
+      <div className="group flex gap-5 py-6 px-5 bg-white/60 backdrop-blur-md border border-border/60 rounded-xl hover:border-border mb-4 transition-all duration-200 shadow-sm">
         <CompanyLogo exp={exp} />
 
         <div className="flex-1 min-w-0">
@@ -105,7 +105,7 @@ export default function Experience() {
           </div>
         </FadeIn>
 
-        <div className="divide-y divide-border">
+        <div className="flex flex-col gap-3">
           {experiences.map((exp, i) => (
             <ExperienceCard key={exp.company} exp={exp} index={i} />
           ))}

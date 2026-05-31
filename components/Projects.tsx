@@ -8,7 +8,7 @@ import FadeIn from "./FadeIn";
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   return (
     <FadeIn delay={index * 0.08}>
-      <div className="group flex flex-col gap-4 py-8 border-b border-border last:border-0 hover:bg-surface/60 rounded-xl px-4 -mx-4 transition-all duration-200">
+      <div className="group flex flex-col gap-4 py-6 px-5 bg-white/60 backdrop-blur-md border border-border/60 rounded-xl hover:border-border transition-all duration-200 shadow-sm">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h3 className="font-serif text-lg text-text-primary mb-0.5">{project.name}</h3>
@@ -65,7 +65,7 @@ export default function Projects() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projects.map((project, i) => (
             <ProjectCard key={project.name} project={project} index={i} />
           ))}

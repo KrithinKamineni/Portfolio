@@ -31,7 +31,7 @@ export default function Skills() {
             const Icon = group.icon;
             return (
               <FadeIn key={group.category} delay={i * 0.07}>
-                <div className="group hover:bg-surface/60 rounded-xl p-4 -mx-4 transition-all duration-200">
+                <div className="group bg-white/60 backdrop-blur-md border border-border/60 rounded-xl p-5 hover:border-border transition-all duration-200 shadow-sm">
                   <div className="flex items-center gap-1.5 mb-4">
                     <Icon size={11} className="text-accent" />
                     <p className="font-sans text-xs text-accent tracking-widest uppercase">

@@ -13,7 +13,7 @@ function OrgCard({ org, index }: { org: Organization; index: number }) {
   return (
     <FadeIn delay={index * 0.1}>
       <div
-        className="group flex gap-5 py-8 border-b border-border last:border-0 hover:bg-surface/60 rounded-xl px-4 -mx-4 transition-all duration-200 cursor-default"
+        className="group flex gap-5 py-6 px-5 bg-white/60 backdrop-blur-md border border-border/60 rounded-xl hover:border-border transition-all duration-200 shadow-sm cursor-default"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -79,7 +79,7 @@ export default function Organizations() {
           </div>
         </FadeIn>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {organizations.map((org, i) => (
             <OrgCard key={org.name} org={org} index={i} />
           ))}
