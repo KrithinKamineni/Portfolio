@@ -34,7 +34,7 @@ export default function PhotoStrip() {
     if (!track) return;
     const tick = () => {
       if (!isDragging.current && track) {
-        const speed = isHovering.current ? 0 : 0.6;
+        const speed = 0.6;
         track.scrollLeft += speed;
         if (track.scrollLeft >= track.scrollWidth / 2) track.scrollLeft = 0;
       }
