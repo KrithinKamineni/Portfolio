@@ -5,7 +5,7 @@ import { siLinkedin, siGithub } from "simple-icons";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="pt-32 pb-12 md:pt-40 md:pb-16 bg-[#111111] scroll-mt-20 relative z-10 isolate">
+    <footer id="contact" className="pt-32 pb-12 md:pt-40 md:pb-16 bg-background scroll-mt-20 relative z-10 isolate border-t border-white/10">
       <div className="max-w-content mx-auto px-6 text-center">
         <div className="flex items-center justify-center gap-1.5 mb-6">
           <MessageCircle size={11} className="text-accent" />

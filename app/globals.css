@@ -4,14 +4,14 @@
 
 html {
   scroll-behavior: smooth;
-  background-color: #F7F5F2;
-  color: #111111;
+  background-color: #0C0C0C;
+  color: #F0EDE8;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #F7F5F2;
+  background-color: #0C0C0C;
 }
 
 * {
@@ -44,6 +44,34 @@ body {
 }
 
 .btn-shimmer:hover::after {
+  left: 100%;
+}
+
+/* Light button variant — white bg, darkens on hover */
+.btn-shimmer-light {
+  position: relative;
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease, transform 0.15s ease;
+}
+
+.btn-shimmer-light:hover {
+  background-color: #d4d4d4;
+}
+
+.btn-shimmer-light::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.25) 50%, transparent 100%);
+  transition: left 0.5s ease;
+  pointer-events: none;
+}
+
+.btn-shimmer-light:hover::after {
   left: 100%;
 }
 
@@ -93,6 +121,6 @@ body {
   position: absolute;
   inset: 3px;
   border-radius: 1.1rem;
-  background: #F7F5F2;
+  background: #0C0C0C;
   z-index: 1;
 }

@@ -32,27 +32,31 @@ export default function Hero() {
             </FadeIn>
 
             <FadeIn delay={0.1}>
-              <h1 className="font-serif text-6xl md:text-7xl lg:text-8xl text-text-primary leading-[1.05] tracking-tight mb-6">
+              <h1 className="font-serif font-normal text-6xl md:text-7xl lg:text-8xl text-text-primary leading-[1.05] tracking-tight mb-6">
                 Krithin<br />Kamineni
               </h1>
             </FadeIn>
 
             <FadeIn delay={0.2}>
-              <div className="font-sans text-lg md:text-xl text-text-secondary max-w-lg mb-8 leading-relaxed">
+              <div className="font-sans text-lg md:text-xl text-text-primary max-w-lg mb-8 leading-relaxed">
                 <Typewriter text="I build products and the code behind them." delay={0.6} speed={30} />
               </div>
             </FadeIn>
 
             <FadeIn delay={0.25}>
-              <p className="font-mono text-sm text-text-secondary tracking-wide mb-8">
-                Software Engineer · Product Manager · Builder
+              <p className="font-mono text-sm tracking-wide mb-8">
+                <span className="text-blue-300">Software Engineer</span>
+                <span className="text-text-secondary"> · </span>
+                <span className="text-purple-300">Product Manager</span>
+                <span className="text-text-secondary"> · </span>
+                <span className="text-accent">Builder</span>
               </p>
             </FadeIn>
 
             <FadeIn delay={0.3}>
               <p className="font-sans text-base text-text-secondary max-w-lg mb-10 leading-relaxed">
                 Second-year EECS student at UC Berkeley shipping AI-powered tools,
-                leading user research, and designing circuits. I build things that
+                leading user research, and designing circuits. I love building things that
                 work for real people.
               </p>
             </FadeIn>
@@ -62,20 +66,20 @@ export default function Hero() {
                 <a
                   href="#projects"
                   onClick={(e) => { e.preventDefault(); document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" }); }}
-                  className="btn-shimmer inline-flex items-center gap-2 px-5 py-2.5 bg-text-primary text-white font-sans text-sm font-medium rounded-lg border border-text-primary hover:scale-105 transition-all duration-150"
+                  className="btn-shimmer-light inline-flex items-center gap-2 px-5 py-2.5 text-black font-sans text-sm font-medium rounded-lg hover:scale-105 transition-all duration-150"
                 >
                   View Projects
                 </a>
                 <a
                   href="#contact"
                   onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/60 backdrop-blur-md text-text-primary font-sans text-sm font-medium rounded-lg border border-border/60 hover:border-border hover:scale-105 transition-all duration-150"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 backdrop-blur-md text-text-primary font-sans text-sm font-medium rounded-lg border border-white/10 hover:border-white/25 hover:scale-105 transition-all duration-150"
                 >
                   Get in Touch
                 </a>
                 <Link
                   href="/coursework"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/60 backdrop-blur-md text-text-primary font-sans text-sm font-medium rounded-lg border border-border/60 hover:border-border hover:scale-105 transition-all duration-150"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/5 backdrop-blur-md text-text-primary font-sans text-sm font-medium rounded-lg border border-white/10 hover:border-white/25 hover:scale-105 transition-all duration-150"
                 >
                   Coursework
                 </Link>
@@ -84,13 +88,13 @@ export default function Hero() {
 
             <FadeIn delay={0.5}>
               <div className="flex items-center gap-5">
-                <a href="https://www.linkedin.com/in/krithin-kamineni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-text-secondary hover:text-[#0A66C2] transition-colors duration-150">
+                <a href="https://www.linkedin.com/in/krithin-kamineni" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile" className="text-text-primary hover:text-[#0A66C2] transition-colors duration-150">
                   <SimpleSvgIcon path={siLinkedin.path} title="LinkedIn" size={18} />
                 </a>
-                <a href="https://github.com/KrithinKamineni" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="text-text-secondary hover:text-text-primary transition-colors duration-150">
+                <a href="https://github.com/KrithinKamineni" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" className="text-text-primary hover:text-text-secondary transition-colors duration-150">
                   <SimpleSvgIcon path={siGithub.path} title="GitHub" size={18} />
                 </a>
-                <a href="mailto:kkam06@berkeley.edu" aria-label="Send email" className="text-text-secondary hover:text-accent transition-colors duration-150">
+                <a href="mailto:kkam06@berkeley.edu" aria-label="Send email" className="text-text-primary hover:text-accent transition-colors duration-150">
                   <Mail size={18} />
                 </a>
               </div>

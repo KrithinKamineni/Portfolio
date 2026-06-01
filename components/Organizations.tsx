@@ -13,7 +13,7 @@ function OrgCard({ org, index }: { org: Organization; index: number }) {
   return (
     <FadeIn delay={index * 0.1}>
       <div
-        className="group flex gap-5 py-6 px-5 bg-white/60 backdrop-blur-md border border-border/60 rounded-xl hover:border-border transition-all duration-200 shadow-sm cursor-default"
+        className="group flex gap-5 py-6 px-5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-white/20 transition-all duration-200 shadow-sm cursor-default"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >

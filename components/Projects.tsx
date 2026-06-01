@@ -1,6 +1,16 @@
 "use client";
 
 import { ExternalLink, FolderOpen } from "lucide-react";
+
+const tagColors: Record<string, string> = {
+  "Next.js": "text-text-primary bg-white/10",
+  TypeScript: "text-blue-300 bg-blue-900/30",
+  NLP: "text-purple-300 bg-purple-900/30",
+  Product: "text-teal-300 bg-teal-900/30",
+  Hardware: "text-orange-300 bg-orange-900/30",
+  "Circuit Design": "text-red-300 bg-red-900/30",
+  LTspice: "text-green-300 bg-green-900/30",
+};
 import { siGithub } from "simple-icons";
 import { projects } from "@/data/projects";
 import FadeIn from "./FadeIn";
@@ -8,11 +18,11 @@ import FadeIn from "./FadeIn";
 function ProjectCard({ project, index }: { project: typeof projects[0]; index: number }) {
   return (
     <FadeIn delay={index * 0.08}>
-      <div className="group flex flex-col gap-4 py-6 px-5 bg-white/60 backdrop-blur-md border border-border/60 rounded-xl hover:border-border transition-all duration-200 shadow-sm">
+      <div className="group flex flex-col gap-4 py-6 px-5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-white/20 transition-all duration-200 shadow-sm">
         <div className="flex items-start justify-between gap-4">
           <div>
             <h3 className="font-serif text-lg text-text-primary mb-0.5">{project.name}</h3>
-            <p className="font-mono text-xs text-text-secondary">{project.period}</p>
+            <p className="font-sans text-xs text-accent">{project.period}</p>
           </div>
           <div className="flex items-center gap-3 flex-shrink-0 pt-1">
             {project.github && (
@@ -28,7 +38,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
           </div>
         </div>
 
-        <p className="font-sans text-sm text-text-secondary leading-relaxed">{project.description}</p>
+        <p className="font-sans text-sm text-text-primary leading-relaxed">{project.description}</p>
 
         <ul className="space-y-2">
           {project.bullets.map((bullet, i) => (
@@ -41,7 +51,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
 
         <div className="flex flex-wrap gap-2">
           {project.tags.map((tag) => (
-            <span key={tag} className="font-mono text-xs px-2.5 py-1 rounded-full text-text-secondary bg-surface border border-border">
+            <span key={tag} className={`font-sans text-xs px-2.5 py-1 rounded-full ${tagColors[tag] ?? "text-text-secondary bg-white/10"}`}>
               {tag}
             </span>
           ))}

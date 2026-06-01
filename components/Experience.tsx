@@ -6,13 +6,13 @@ import { experiences } from "@/data/experience";
 import FadeIn from "./FadeIn";
 
 const tagColors: Record<string, string> = {
-  Product: "text-purple-700 bg-purple-50",
-  AI: "text-blue-700 bg-blue-50",
-  Research: "text-teal-700 bg-teal-50",
-  Engineering: "text-orange-700 bg-orange-50",
-  "Full Stack": "text-indigo-700 bg-indigo-50",
-  Backend: "text-green-700 bg-green-50",
-  AWS: "text-yellow-700 bg-yellow-50",
+  Product: "text-purple-300 bg-purple-900/30",
+  AI: "text-blue-300 bg-blue-900/30",
+  Research: "text-teal-300 bg-teal-900/30",
+  Engineering: "text-orange-300 bg-orange-900/30",
+  "Full Stack": "text-indigo-300 bg-indigo-900/30",
+  Backend: "text-green-300 bg-green-900/30",
+  AWS: "text-yellow-300 bg-yellow-900/30",
 };
 
 function CompanyLogo({ exp }: { exp: typeof experiences[0] }) {
@@ -46,17 +46,17 @@ function CompanyLogo({ exp }: { exp: typeof experiences[0] }) {
 function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
   return (
     <FadeIn delay={index * 0.08}>
-      <div className="group flex gap-5 py-6 px-5 bg-white/60 backdrop-blur-md border border-border/60 rounded-xl hover:border-border mb-4 transition-all duration-200 shadow-sm">
+      <div className="group flex gap-5 py-6 px-5 bg-white/5 backdrop-blur-md border border-white/10 rounded-xl hover:border-white/20 mb-4 transition-all duration-200 shadow-sm">
         <CompanyLogo exp={exp} />
 
         <div className="flex-1 min-w-0">
           <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-1 mb-1">
             <h3 className="font-serif text-lg text-text-primary">{exp.company}</h3>
-            <span className="font-sans text-xs text-text-secondary whitespace-nowrap">{exp.period}</span>
+            <span className="font-sans text-xs text-text-primary/60 whitespace-nowrap">{exp.period}</span>
           </div>
           <div className="flex flex-wrap items-center gap-3 mb-4">
-            <span className="font-sans text-sm text-text-secondary">{exp.role}</span>
-            <span className="flex items-center gap-1 font-sans text-xs text-text-secondary/70">
+            <span className="font-sans text-sm text-accent">{exp.role}</span>
+            <span className="flex items-center gap-1 font-sans text-xs text-text-primary/60">
               <MapPin size={11} />
               {exp.location}
             </span>

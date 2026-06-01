@@ -21,9 +21,9 @@ export default function CursorGlow() {
     };
 
     const animate = () => {
-      currentX += (x - currentX) * 0.08;
-      currentY += (y - currentY) * 0.08;
-      glow.style.transform = `translate(${currentX - 400}px, ${currentY - 400}px)`;
+      currentX += (x - currentX) * 0.15;
+      currentY += (y - currentY) * 0.15;
+      glow.style.transform = `translate(${currentX - 250}px, ${currentY - 250}px)`;
       raf = requestAnimationFrame(animate);
     };
 
@@ -43,11 +43,12 @@ export default function CursorGlow() {
     >
       <div
         ref={glowRef}
-        className="absolute w-[800px] h-[800px] rounded-full"
+        className="absolute w-[500px] h-[500px] rounded-full"
         style={{
           background:
-            "radial-gradient(circle, rgba(232,168,56,0.18) 0%, rgba(232,168,56,0.06) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(232,168,56,0.15) 0%, rgba(232,168,56,0.05) 45%, rgba(232,168,56,0.01) 65%, transparent 80%)",
           willChange: "transform",
+          filter: "blur(8px)",
         }}
       />
     </div>

@@ -14,7 +14,7 @@ function StatusBadge({ status }: { status: Course["status"] }) {
       className={`font-mono text-[10px] px-2.5 py-1 rounded-full tracking-widest ${
         isRunning
           ? "text-accent bg-accent/5"
-          : "text-emerald-600 bg-emerald-50"
+          : "text-emerald-400 bg-emerald-900/30"
       }`}
     >
       {status}
@@ -27,7 +27,7 @@ function CourseCard({ course, index }: { course: Course; index: number }) {
   return (
     <FadeIn delay={index * 0.05}>
       <div
-        className="group flex gap-4 py-5 border-b border-border last:border-0 hover:bg-surface/60 rounded-xl px-4 -mx-4 transition-all duration-200"
+        className="group flex gap-4 py-5 border-b border-border last:border-0 hover:bg-white/5 rounded-xl px-4 -mx-4 transition-all duration-200"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
@@ -79,7 +79,7 @@ export default function CourseworkPage() {
             <p className="font-mono text-xs text-accent tracking-widest uppercase mb-3">Academic</p>
             <h1 className="font-serif text-5xl md:text-6xl text-text-primary mb-4">Coursework</h1>
             <p className="font-sans text-base text-text-secondary max-w-xl">
-              Academic coursework and technical foundations — B.S. EECS at UC Berkeley, expected May 2028.
+              Academic coursework and technical foundations.
             </p>
           </div>
         </FadeIn>
@@ -96,7 +96,7 @@ export default function CourseworkPage() {
                     {semester.label}
                   </span>
                   {semester.current && (
-                    <span className="font-mono text-[10px] text-emerald-600 bg-emerald-50 rounded-full px-2.5 py-0.5 tracking-widest">
+                    <span className="font-mono text-[10px] text-emerald-400 bg-emerald-900/30 rounded-full px-2.5 py-0.5 tracking-widest">
                       CURRENT
                     </span>
                   )}

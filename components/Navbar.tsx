@@ -51,11 +51,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-          scrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-background/60 backdrop-blur-sm"
-        }`}
-      >
+      <header className="fixed top-0 left-0 right-0 z-50 bg-black/40 backdrop-blur-md">
         <div className="max-w-content mx-auto px-6 flex items-center justify-between h-20">
 
           {/* Left: initials + nav links */}
@@ -90,7 +86,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" }); }}
-              className="btn-shimmer hidden md:inline-flex items-center font-sans text-base font-medium px-5 py-2 rounded-lg bg-text-primary text-white hover:scale-105 transition-all duration-150"
+              className="btn-shimmer-light hidden md:inline-flex items-center font-sans text-base font-medium px-5 py-2 rounded-lg text-black hover:scale-105 transition-all duration-150"
             >
               Contact
             </a>

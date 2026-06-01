@@ -22,6 +22,7 @@ export default function PhotoStrip() {
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const didDrag = useRef(false);
+  const isHovering = useRef<boolean>(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const autoScrollRef = useRef<number>();
@@ -33,7 +34,8 @@ export default function PhotoStrip() {
     if (!track) return;
     const tick = () => {
       if (!isDragging.current && track) {
-        track.scrollLeft += 0.6;
+        const speed = isHovering.current ? 0 : 0.6;
+        track.scrollLeft += speed;
         if (track.scrollLeft >= track.scrollWidth / 2) track.scrollLeft = 0;
       }
       autoScrollRef.current = requestAnimationFrame(tick);
@@ -89,15 +91,21 @@ export default function PhotoStrip() {
 
   return (
     <>
-      <section className="py-16 bg-background overflow-hidden">
+      <section className="py-16 bg-transparent overflow-hidden relative z-10 isolate">
         <div
           ref={trackRef}
           className={`flex gap-4 overflow-x-scroll select-none px-8 ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          onMouseEnter={() => { isHovering.current = true; }}
+          onMouseLeave={(e) => {
+            if (!trackRef.current?.contains(e.relatedTarget as Node)) {
+              isHovering.current = false;
+              onMouseUp();
+            }
+          }}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
-          onMouseLeave={onMouseUp}
           onTouchStart={onTouchStart}
           onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
@@ -109,7 +117,7 @@ export default function PhotoStrip() {
               alt={`Photo ${(i % photos.length) + 1}`}
               draggable={false}
               onClick={() => handlePhotoClick(src)}
-              className="h-64 md:h-72 w-auto flex-shrink-0 rounded-xl border border-border object-cover pointer-events-auto hover:brightness-90 transition-all duration-150"
+              className="h-64 md:h-72 w-auto flex-shrink-0 rounded-xl border border-white/10 object-cover pointer-events-auto hover:brightness-110 transition-all duration-150"
             />
           ))}
         </div>

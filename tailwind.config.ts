@@ -9,11 +9,11 @@ const config: Config = {
     extend: {
       colors: {
         accent: "#E8A838",
-        background: "#F7F5F2",
-        surface: "#FFFFFF",
-        "text-primary": "#111111",
-        "text-secondary": "#6B6B6B",
-        border: "#E4E0DA",
+        background: "#0C0C0C",
+        surface: "#161616",
+        "text-primary": "#F0EDE8",
+        "text-secondary": "#888888",
+        border: "#2A2A2A",
       },
       fontFamily: {
         serif: ["var(--font-dm-serif)", "Georgia", "serif"],
