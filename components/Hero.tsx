@@ -24,7 +24,7 @@ export default function Hero() {
 
           {/* Headshot — top on mobile, hidden here on desktop */}
           <FadeIn delay={0.1}>
-            <div className="flex justify-center md:hidden">
+            <div className="flex justify-start md:hidden">
               <div className="headshot-float">
                 <div className="relative w-40 h-40">
                   <div className="glow-ring-wrap" style={{ borderRadius: "9999px" }}>
