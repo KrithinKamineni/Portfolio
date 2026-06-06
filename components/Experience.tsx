@@ -35,11 +35,11 @@ function ExperienceModal({ exp, onClose }: { exp: Experience; onClose: () => voi
 
   return (
     <div
-      className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-6"
+      className="fixed inset-0 z-[100] bg-black/70 backdrop-blur-sm flex items-center justify-center p-6 animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="relative bg-[#111111] rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-8 shadow-2xl"
+        className="relative bg-[#111111] rounded-2xl max-w-lg w-full max-h-[85vh] overflow-y-auto p-8 shadow-2xl animate-slideUp"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close button */}

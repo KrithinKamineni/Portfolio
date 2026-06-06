@@ -126,7 +126,7 @@ export default function PhotoStrip() {
       {/* Lightbox */}
       {lightbox && (
         <div
-          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-6"
+          className="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm flex items-center justify-center p-6 animate-fadeIn"
           onClick={() => setLightbox(null)}
         >
           <button
@@ -139,7 +139,7 @@ export default function PhotoStrip() {
           <img
             src={lightbox}
             alt="Expanded photo"
-            className="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
+            className="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl animate-slideUp"
             onClick={(e) => e.stopPropagation()}
           />
         </div>
