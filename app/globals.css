@@ -118,6 +118,8 @@ body {
   border-radius: 1.35rem;
   overflow: hidden;
   z-index: 0;
+  -webkit-mask-image: radial-gradient(circle, black 60%, transparent 100%);
+  mask-image: radial-gradient(circle, black 60%, transparent 100%);
 }
 
 .glow-ring-spinner {
@@ -126,7 +128,7 @@ body {
   height: 200%;
   top: -50%;
   left: -50%;
-  background: conic-gradient(transparent 0deg, transparent 200deg, #E8A838 260deg, #f5c842 300deg, transparent 360deg);
+  background: conic-gradient(transparent 0deg, transparent 170deg, rgba(232,168,56,0.1) 200deg, rgba(232,168,56,0.5) 230deg, #E8A838 260deg, #f5c842 290deg, rgba(232,168,56,0.5) 315deg, rgba(232,168,56,0.1) 335deg, transparent 360deg);
   animation: spin-glow 6s linear infinite;
 }
 
@@ -142,7 +144,7 @@ body {
 
 .glow-ring-inner {
   position: absolute;
-  inset: 3px;
+  inset: 5px;
   border-radius: 1.1rem;
   background: #0C0C0C;
   z-index: 1;
