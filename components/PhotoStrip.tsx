@@ -25,7 +25,7 @@ export default function PhotoStrip() {
   const isHovering = useRef<boolean>(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
-  const autoScrollRef = useRef<number>();
+  const autoScrollRef = useRef<number>(0);
   const [dragging, setDragging] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
 

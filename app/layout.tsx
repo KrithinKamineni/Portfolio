@@ -41,6 +41,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <script dangerouslySetInnerHTML={{ __html: "history.scrollRestoration='manual';window.scrollTo(0,0);" }} />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </head>
       <body
         className={`${dmSerif.variable} ${dmSans.variable} ${jetbrainsMono.variable} font-sans bg-background text-text-primary antialiased`}
