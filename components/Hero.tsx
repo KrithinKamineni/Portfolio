@@ -22,6 +22,23 @@ export default function Hero() {
       <div className="max-w-content mx-auto px-6 py-20 md:py-28">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-16">
 
+          {/* Headshot — top on mobile, hidden here on desktop */}
+          <FadeIn delay={0.1}>
+            <div className="flex justify-center md:hidden">
+              <div className="headshot-float">
+                <div className="relative w-40 h-40">
+                  <div className="glow-ring-wrap" style={{ borderRadius: "9999px" }}>
+                    <div className="glow-ring-spinner" />
+                    <div className="glow-ring-inner" style={{ borderRadius: "9999px" }} />
+                  </div>
+                  <div className="absolute inset-[3px] rounded-full overflow-hidden z-10">
+                    <Image src="/headshot.jpg" alt="Krithin Kamineni" fill className="object-cover object-top" priority />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </FadeIn>
+
           {/* Text */}
           <div className="flex-1 max-w-2xl">
             <FadeIn delay={0}>
@@ -101,9 +118,9 @@ export default function Hero() {
             </FadeIn>
           </div>
 
-          {/* Headshot */}
+          {/* Headshot — desktop only */}
           <FadeIn delay={0.2}>
-            <div className="flex-shrink-0 flex justify-center md:justify-end">
+            <div className="flex-shrink-0 hidden md:flex justify-end">
               <div className="headshot-float">
                 <div className="relative w-52 h-52 md:w-64 md:h-64">
                   <div className="glow-ring-wrap" style={{ borderRadius: "9999px" }}>

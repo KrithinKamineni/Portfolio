@@ -22,29 +22,33 @@ export default function PhotoStrip() {
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const didDrag = useRef(false);
-  const isHovering = useRef<boolean>(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
   const autoScrollRef = useRef<number>(0);
   const [dragging, setDragging] = useState(false);
   const [lightbox, setLightbox] = useState<string | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    setIsMobile(window.matchMedia("(pointer: coarse)").matches);
+  }, []);
+
+  // Desktop: rAF auto-scroll
+  useEffect(() => {
+    if (isMobile) return;
     const track = trackRef.current;
     if (!track) return;
     const tick = () => {
       if (!isDragging.current && track) {
-        const speed = 0.6;
-        track.scrollLeft += speed;
+        track.scrollLeft += 0.6;
         if (track.scrollLeft >= track.scrollWidth / 2) track.scrollLeft = 0;
       }
       autoScrollRef.current = requestAnimationFrame(tick);
     };
     autoScrollRef.current = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(autoScrollRef.current!);
-  }, []);
+    return () => cancelAnimationFrame(autoScrollRef.current);
+  }, [isMobile]);
 
-  // Close lightbox on Escape
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setLightbox(null); };
     window.addEventListener("keydown", onKey);
@@ -70,6 +74,7 @@ export default function PhotoStrip() {
   const onMouseUp = () => { isDragging.current = false; setDragging(false); };
 
   const onTouchStart = (e: React.TouchEvent) => {
+    if (isMobile) return;
     isDragging.current = true;
     didDrag.current = false;
     startX.current = e.touches[0].pageX - (trackRef.current?.offsetLeft ?? 0);
@@ -77,7 +82,7 @@ export default function PhotoStrip() {
   };
 
   const onTouchMove = (e: React.TouchEvent) => {
-    if (!isDragging.current || !trackRef.current) return;
+    if (isMobile || !isDragging.current || !trackRef.current) return;
     const x = e.touches[0].pageX - trackRef.current.offsetLeft;
     didDrag.current = true;
     trackRef.current.scrollLeft = scrollLeft.current - (x - startX.current) * 1.5;
@@ -92,35 +97,47 @@ export default function PhotoStrip() {
   return (
     <>
       <section className="py-16 bg-transparent overflow-hidden relative z-10 isolate">
-        <div
-          ref={trackRef}
-          className={`flex gap-4 overflow-x-scroll select-none px-8 ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-          onMouseEnter={() => { isHovering.current = true; }}
-          onMouseLeave={(e) => {
-            if (!trackRef.current?.contains(e.relatedTarget as Node)) {
-              isHovering.current = false;
-              onMouseUp();
-            }
-          }}
-          onMouseDown={onMouseDown}
-          onMouseMove={onMouseMove}
-          onMouseUp={onMouseUp}
-          onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
-          onTouchEnd={onTouchEnd}
-        >
-          {allPhotos.map((src, i) => (
-            <img
-              key={i}
-              src={src}
-              alt={`Photo ${(i % photos.length) + 1}`}
-              draggable={false}
-              onClick={() => handlePhotoClick(src)}
-              className="h-64 md:h-72 w-auto flex-shrink-0 rounded-xl border border-white/10 object-cover pointer-events-auto hover:brightness-110 transition-all duration-150"
-            />
-          ))}
-        </div>
+        {isMobile ? (
+          // Mobile: CSS marquee animation — smooth, no JS conflict
+          <div className="flex gap-4 px-4" style={{ animation: "marquee 30s linear infinite", width: "max-content" }}>
+            {allPhotos.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`Photo ${(i % photos.length) + 1}`}
+                draggable={false}
+                onClick={() => setLightbox(src)}
+                className="h-52 w-auto flex-shrink-0 rounded-xl border border-white/10 object-cover"
+              />
+            ))}
+          </div>
+        ) : (
+          <div
+            ref={trackRef}
+            className={`flex gap-4 overflow-x-scroll select-none px-8 ${dragging ? "cursor-grabbing" : "cursor-grab"}`}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            onMouseLeave={(e) => {
+              if (!trackRef.current?.contains(e.relatedTarget as Node)) onMouseUp();
+            }}
+            onMouseDown={onMouseDown}
+            onMouseMove={onMouseMove}
+            onMouseUp={onMouseUp}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
+          >
+            {allPhotos.map((src, i) => (
+              <img
+                key={i}
+                src={src}
+                alt={`Photo ${(i % photos.length) + 1}`}
+                draggable={false}
+                onClick={() => handlePhotoClick(src)}
+                className="h-64 md:h-72 w-auto flex-shrink-0 rounded-xl border border-white/10 object-cover pointer-events-auto hover:brightness-110 transition-all duration-150"
+              />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Lightbox */}
