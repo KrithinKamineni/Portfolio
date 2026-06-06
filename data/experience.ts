@@ -24,7 +24,7 @@ export const experiences: Experience[] = [
     logoColor: "#FFFFFF",
     logoBg: "#111111",
     website: "https://insightlabai.dev/",
-    summary: "Incoming software engineering intern at an early-stage AI startup based in San Francisco.",
+    summary: "Incoming software engineering intern at an early-stage AI startup based in the San Francisco Bay Area.",
     bullets: [],
   },
   {
