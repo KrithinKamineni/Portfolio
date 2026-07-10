@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { ExternalLink, FolderOpen, X } from "lucide-react";
+import { ExternalLink, FolderOpen, X, Play } from "lucide-react";
 import { siGithub } from "simple-icons";
 import { projects, type Project } from "@/data/projects";
 import FadeIn from "./FadeIn";
@@ -15,8 +15,13 @@ const tagColors: Record<string, string> = {
   "Circuit Design": "text-red-300 bg-red-900/30",
   LTspice: "text-green-300 bg-green-900/30",
   React: "text-blue-300 bg-blue-900/30",
-  Supabase: "text-green-300 bg-green-900/30",
+  PostgreSQL: "text-green-300 bg-green-900/30",
   Finance: "text-yellow-300 bg-yellow-900/30",
+  "Claude AI": "text-orange-300 bg-orange-900/30",
+  BrowserBase: "text-indigo-300 bg-indigo-900/30",
+  "Node.js": "text-green-300 bg-green-900/30",
+  FastAPI: "text-teal-300 bg-teal-900/30",
+  "AI Agents": "text-purple-300 bg-purple-900/30",
 };
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
@@ -82,7 +87,17 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
               rel="noopener noreferrer"
               className="btn-shimmer-light inline-flex items-center gap-2 font-sans text-sm font-medium px-5 py-2.5 rounded-full text-black hover:scale-105 transition-all duration-150"
             >
-              Visit Demo <ExternalLink size={14} />
+              {project.demoLabel ?? "Visit Demo"} <ExternalLink size={14} />
+            </a>
+          )}
+          {project.video && (
+            <a
+              href={project.video}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 font-sans text-sm text-text-primary hover:text-accent transition-colors"
+            >
+              <Play size={16} /> Watch Video
             </a>
           )}
         </div>
@@ -135,6 +150,18 @@ function ProjectCard({ project, index, onClick }: { project: Project; index: num
                 className="text-text-secondary hover:text-accent transition-colors"
               >
                 <ExternalLink size={20} />
+              </a>
+            )}
+            {project.video && (
+              <a
+                href={project.video}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                aria-label={`${project.name} video`}
+                className="text-text-secondary hover:text-accent transition-colors"
+              >
+                <Play size={20} />
               </a>
             )}
           </div>
